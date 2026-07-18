@@ -68,3 +68,4 @@ vercel.json               Vercel framework detection
 - Story titles, summaries, emotional framing and verdicts live in `src/components/Home.tsx`.
 - The visual language and responsive layouts live in `src/styles/global.css`.
 - Site title, description and social-sharing metadata live in `src/layouts/Layout.astro`.
+Connected to Vercel for automatic deployments.
