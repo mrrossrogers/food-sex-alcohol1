@@ -1,0 +1,40 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Food Sex Alcohol | Life Is Short. Spend It Well.",
+  description = "A premium publication devoted to experiences worth your limited time on Earth. Food, intimacy, celebration and the moments that remain.",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#181714" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Food Sex Alcohol — Founding Edition" />
+    <meta property="og:description" content="Better experiences start here. Life is short. Spend it well." />
+    <meta property="og:image" content={new URL("/images/hero.png", Astro.site)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Food Sex Alcohol" />
+    <meta name="twitter:description" content="Life is short. Spend it well." />
+    <meta name="twitter:image" content={new URL("/images/hero.png", Astro.site)} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
