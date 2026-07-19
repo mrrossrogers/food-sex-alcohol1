@@ -24,6 +24,6 @@ const relatedStories = relatedStoriesFor(story);
     <div class="planning"><span>Planning notes</span><ul>{story.planningNotes.map((note) => <li>{note}</li>)}</ul></div>
     <div class="verdict"><p>The FSA Verdict</p><h2>Was this experience worth your limited time on Earth?</h2><strong>{story.editorialConclusion}</strong><span>Editorial judgment. No stars. No scores.</span></div>
   </article>
-  <aside class="related-stories section-pad"><p class="eyebrow">Continue reading</p><h2>Related stories.</h2><div>{relatedStories.map((related) => <a href={storyPath(related)}><span>{related.primaryCategory} / {related.identifier}</span><strong>{related.headline}</strong><i>Read ↗</i></a>)}</div></aside>
+  <aside class="related-stories section-pad"><p class="eyebrow">Continue reading</p><h2>Related stories.</h2><div>{relatedStories.map((related) => <a href={storyPath(related)}><span>{related.primaryCategory} / {related.identifier}</span><strong>{related.headline}</strong><i>Read</i></a>)}</div></aside>
   <footer class="page-footer"><a href="/">FOOD<br />SEX<br />ALCOHOL</a><p>Life is short.<br />Spend it well.</p></footer>
 </main>

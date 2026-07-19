@@ -55,7 +55,6 @@ export default function Home() {
               <span className="cover-category">{story.primaryCategory} / {story.identifier}</span>
               <strong>{story.headline}</strong>
               <span className="cover-moment">{story.moment}</span>
-              <span className="cover-arrow">↗</span>
             </a>
           ))}
         </div>
@@ -95,7 +94,7 @@ export default function Home() {
         {categories.map((category) => <div className="story-chapter" id={category.toLowerCase()} key={category}>
           <div className="chapter-title"><span>{categoryDetails[category].number}</span><h3>{category}</h3><p>{categoryDetails[category].emotion}<br/><small>{categoryDetails[category].outcome}</small></p></div>
           <div className="story-list">{stories.filter((story) => story.primaryCategory === category).map((story) => <a className={`story-row tone-${story.tone}`} key={story.identifier} href={storyPath(story)}>
-              <span className="story-no">{story.identifier}</span><span className="story-cat">{story.primaryCategory}</span><span className="story-title">{story.headline}</span><span className="story-deck">{story.description}</span><span className="story-go">Read ↗</span>
+              <span className="story-no">{story.identifier}</span><span className="story-cat">{story.primaryCategory}</span><span className="story-title">{story.headline}</span><span className="story-deck">{story.description}</span><span className="story-go">Read</span>
             </a>)}</div>
         </div>)}
       </section>
@@ -109,7 +108,7 @@ export default function Home() {
 
       <section className="universes">
         {categories.map((cat, i) => <a href={`/${cat.toLowerCase()}`} className={`universe universe-${i}`} key={cat}>
-          <span>0{i+1}</span><strong>{cat}</strong><p>{i===0 ? "Nourishment, hospitality and the tables that hold us." : i===1 ? "Intimacy, confidence and the courage to be known." : "Celebration, ritual and a better reason to raise a glass."}</p><i>Explore the universe ↗</i>
+          <span>0{i+1}</span><strong>{cat}</strong><p>{i===0 ? "Nourishment, hospitality and the tables that hold us." : i===1 ? "Intimacy, confidence and the courage to be known." : "Celebration, ritual and a better reason to raise a glass."}</p><i>Explore the universe</i>
         </a>)}
       </section>
 
