@@ -1,0 +1,16 @@
+---
+import CategoryPage from "../../components/CategoryPage.astro";
+import { categories, categoryDetails, type StoryCategory } from "../../data/stories";
+import Layout from "../../layouts/Layout.astro";
+
+export function getStaticPaths() {
+  return categories.map((category) => ({ params: { category: category.toLowerCase() }, props: { category } }));
+}
+
+interface Props { category: StoryCategory }
+const { category } = Astro.props;
+---
+
+<Layout title={`${category} | Food Sex Alcohol`} description={categoryDetails[category].description}>
+  <CategoryPage category={category} />
+</Layout>

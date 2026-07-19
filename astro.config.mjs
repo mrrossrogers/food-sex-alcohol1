@@ -5,6 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   site: "https://foodsexalcohol.com",
   output: "static",
+  trailingSlash: "never",
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],

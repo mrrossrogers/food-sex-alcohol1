@@ -1,0 +1,29 @@
+---
+import type { Story } from "../data/stories";
+import { relatedStoriesFor, storyPath } from "../data/stories";
+
+interface Props { story: Story }
+const { story } = Astro.props;
+const relatedStories = relatedStoriesFor(story);
+---
+
+<main class="article-page">
+  <header class="page-masthead page-masthead-over">
+    <a class="page-wordmark" href="/">FOOD <i>·</i> SEX <i>·</i> ALCOHOL</a>
+    <a href={`/${story.primaryCategory.toLowerCase()}`}>Explore {story.primaryCategory}</a>
+  </header>
+  <div class="article-hero"><img src={story.heroImage} alt={story.heroImageDescription} width="1536" height="1024" /><div><p>{story.primaryCategory} · ISSUE 01 · {story.identifier}</p><h1>{story.headline}</h1><span>{story.moment}</span></div></div>
+  <article class="article-body">
+    <div class="article-byline"><span>By {story.author}</span><time datetime={story.publicationDate}>{new Date(`${story.publicationDate}T00:00:00`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</time></div>
+    <div class="emotion-brief"><span><small>Primary emotion</small>{story.emotion}</span><span><small>Life moment</small>{story.moment}</span><span><small>Desired outcome</small>{story.outcome}</span></div>
+    <p class="dropcap">{story.articleIntroduction}</p>
+    {story.articleSections.map((section, index) => <>
+      <h2>{section.heading}</h2>{section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      {index === 0 && <blockquote>“{story.articleQuote}”</blockquote>}
+    </>)}
+    <div class="planning"><span>Planning notes</span><ul>{story.planningNotes.map((note) => <li>{note}</li>)}</ul></div>
+    <div class="verdict"><p>The FSA Verdict</p><h2>Was this experience worth your limited time on Earth?</h2><strong>{story.editorialConclusion}</strong><span>Editorial judgment. No stars. No scores.</span></div>
+  </article>
+  <aside class="related-stories section-pad"><p class="eyebrow">Continue reading</p><h2>Related stories.</h2><div>{relatedStories.map((related) => <a href={storyPath(related)}><span>{related.primaryCategory} / {related.identifier}</span><strong>{related.headline}</strong><i>Read ↗</i></a>)}</div></aside>
+  <footer class="page-footer"><a href="/">FOOD<br />SEX<br />ALCOHOL</a><p>Life is short.<br />Spend it well.</p></footer>
+</main>

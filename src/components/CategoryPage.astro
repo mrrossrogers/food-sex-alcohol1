@@ -1,0 +1,30 @@
+---
+import type { StoryCategory } from "../data/stories";
+import { categoryDetails, storiesForCategory, storyPath } from "../data/stories";
+
+interface Props { category: StoryCategory }
+const { category } = Astro.props;
+const detail = categoryDetails[category];
+const categoryStories = storiesForCategory(category);
+---
+
+<main class="category-page">
+  <header class="page-masthead">
+    <a class="page-wordmark" href="/">FOOD <i>·</i> SEX <i>·</i> ALCOHOL</a>
+    <a href="/">Founding Edition <b>01</b></a>
+  </header>
+  <section class="category-hero">
+    <p class="eyebrow">Universe {detail.number} · Founding Edition</p>
+    <h1>{category}</h1>
+    <div><p>{detail.emotion}<br /><small>{detail.outcome}</small></p><p>{detail.description}</p></div>
+  </section>
+  <section class="category-stories section-pad">
+    <p class="eyebrow">All {category} stories</p>
+    <div class="story-list">
+      {categoryStories.map((story) => <a class={`story-row tone-${story.tone}`} href={storyPath(story)}>
+        <span class="story-no">{story.identifier}</span><span class="story-cat">{story.primaryCategory}</span><span class="story-title">{story.headline}</span><span class="story-deck">{story.description}</span><span class="story-go">Read ↗</span>
+      </a>)}
+    </div>
+  </section>
+  <footer class="page-footer"><a href="/">FOOD<br />SEX<br />ALCOHOL</a><p>Life is short.<br />Spend it well.</p></footer>
+</main>
