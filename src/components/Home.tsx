@@ -3,7 +3,16 @@
 import { useEffect, useState } from "react";
 import { categories, categoryDetails, stories, storyPath } from "../data/stories";
 
-const featured = stories.filter((story) => story.featured);
+const featuredStorySlugs = [
+  "the-dinner-that-makes-time-disappear",
+  "luxury-sheets-worth-every-dollar",
+  "champagne-worth-saving-for-lifes-biggest-moments",
+  "the-long-lunch-is-not-dead",
+  "coffee-worth-waking-up-early-for",
+  "the-hotel-room-built-for-reconnection",
+];
+
+const featured = featuredStorySlugs.map((slug) => stories.find((story) => story.slug === slug)!);
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
