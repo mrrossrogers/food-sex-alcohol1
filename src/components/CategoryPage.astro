@@ -22,7 +22,7 @@ const categoryStories = storiesForCategory(category);
     <p class="eyebrow">All {category} stories</p>
     <div class="story-list">
       {categoryStories.map((story) => <a class={`story-row tone-${story.tone}`} href={storyPath(story)}>
-        <span class="story-no">{story.identifier}</span><span class="story-cat">{story.primaryCategory}</span><span class="story-title">{story.headline}</span><span class="story-deck">{story.description}</span><span class="story-go">Read ↗</span>
+        <span class="story-no">{story.identifier}</span><span class="story-cat">{story.primaryCategory}</span><span class="story-title">{story.headline}</span><span class="story-deck">{story.description}</span><span class="story-go">Read</span>
       </a>)}
     </div>
   </section>
