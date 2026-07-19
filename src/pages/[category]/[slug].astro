@@ -1,0 +1,19 @@
+---
+import StoryPage from "../../components/StoryPage.astro";
+import { stories, type Story } from "../../data/stories";
+import Layout from "../../layouts/Layout.astro";
+
+export function getStaticPaths() {
+  return stories.filter((story) => story.publicationStatus === "published").map((story) => ({
+    params: { category: story.primaryCategory.toLowerCase(), slug: story.slug },
+    props: { story },
+  }));
+}
+
+interface Props { story: Story }
+const { story } = Astro.props;
+---
+
+<Layout title={`${story.headline} | Food Sex Alcohol`} description={story.description}>
+  <StoryPage story={story} />
+</Layout>
