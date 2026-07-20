@@ -43,7 +43,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="ticker" aria-label="Editorial promise"><span>FOOD NOURISHES</span><i>✦</i><span>SEX CONNECTS</span><i>✦</i><span>ALCOHOL CELEBRATES</span><i>✦</i><span>EXPERIENCES REMAIN</span></section>
+      <nav className="ticker" aria-label="Editorial navigation"><a href="/food">FOOD NOURISHES</a><i>✦</i><a href="/sex">SEX CONNECTS</a><i>✦</i><a href="/alcohol">ALCOHOL CELEBRATES</a><i>✦</i><a href="#issue">EXPERIENCES REMAIN</a></nav>
 
       <section className="featured section-pad" id="featured">
         <div className="featured-intro"><div><p className="eyebrow">Featured Stories</p><h2>Begin with a moment<br/>worth remembering.</h2></div><p>We do not review things for the sake of having an opinion. We ask whether they can improve a real hour in someone&apos;s life.</p></div>
